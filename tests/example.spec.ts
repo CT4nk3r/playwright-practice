@@ -7,4 +7,5 @@ test('login', async ({ page }) => {
   await page.getByLabel('Password').click();
   await page.getByLabel('Password').fill('SuperSecretPassword!');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.locator('#flash').filter({ hasText: 'You logged into a secure area!' })).toBeTruthy();
 });
