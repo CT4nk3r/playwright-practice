@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://practice.expandtesting.com/bmi');
 })
   
-test.only(`testing with ${weight}`, async ({ page }) => {
+test(`testing with ${weight}`, async ({ page }) => {
     await page.getByLabel('Gender').selectOption(gender);
     await page.getByPlaceholder('35').fill(age);
     await page.getByPlaceholder('190').fill(height);
