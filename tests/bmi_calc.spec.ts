@@ -9,13 +9,14 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://practice.expandtesting.com/bmi');
 })
   
-test(`testing with ${weight}`, async ({ page }) => {
-    await page.getByLabel('Gender').selectOption(gender);
-    await page.getByPlaceholder('35').fill(age);
-    await page.getByPlaceholder('190').fill(height);
-    await page.getByPlaceholder('70').fill(weight);
-    await page.getByRole('button', { name: 'Calculate' }).click();
-    await page.getByText(`BMI = ${expected}`).click();
-    await page.getByText(`Your BMI is ${expected}`).click();
+test.only(`testing with ${weight}`, async ({ page }) => {
+  await page.locator('#gender').selectOption(gender);
+  await page.locator('#age').fill(age);
+  //await page.getByPlaceholder('35').fill(age);
+  await page.locator('#height').fill(height);
+  await page.locator('#weight').fill(weight);
+  await page.getByRole('button', { name: 'Calculate' }).click();
+  await page.getByText(`BMI = ${expected}`).click();
+  await page.getByText(`Your BMI is ${expected}`).click();
   });
 });
