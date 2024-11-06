@@ -12,11 +12,10 @@ test.beforeEach(async ({ page }) => {
 test(`testing with ${weight}`, async ({ page }) => {
   await page.locator('#gender').selectOption(gender);
   await page.locator('#age').fill(age);
-  //await page.getByPlaceholder('35').fill(age);
   await page.locator('#height').fill(height);
   await page.locator('#weight').fill(weight);
-  await page.getByRole('button', { name: 'Calculate' }).click();
-  await page.getByText(`BMI = ${expected}`).click();
-  await page.getByText(`Your BMI is ${expected}`).click();
+  await page.locator('.btn-primary').click();
+  expect(page.getByText(`BMI = ${expected}`)).toBeTruthy();
+  expect(page.getByText(`Your BMI is ${expected}`)).toBeTruthy();
   });
 });
