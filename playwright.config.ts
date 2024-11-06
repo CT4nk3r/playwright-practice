@@ -20,11 +20,12 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 3 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 6 : 1,
+  workers: process.env.CI ? 6 : 4,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    locale: 'en-GB',
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
@@ -36,12 +37,14 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+       },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'],
+      },
     },
 
     {
