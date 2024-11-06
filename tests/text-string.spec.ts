@@ -6,8 +6,7 @@ test.describe('testing text input', () => {
     })
     
     test('with no text entered', async ({ page }) => {
-        await page.locator('#id_text_string').click();
-        await page.keyboard.press('Enter');
+        await page.locator('#id_text_string').press('Enter');
         const text_field = page.locator('#id_text_string')
         const validationMessage = await text_field.evaluate((element) => {
             const input = element as HTMLInputElement
