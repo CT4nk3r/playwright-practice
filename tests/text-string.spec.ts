@@ -13,7 +13,7 @@ test.describe('testing text input', () => {
             const input = element as HTMLInputElement
             return input.validationMessage
         })
-        expect(validationMessage).toContain('*fill*');
+        expect(validationMessage).toContain('fill');
     })
     
     test('with less than 5 characters', async ({ page }) => {
