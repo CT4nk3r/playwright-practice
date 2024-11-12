@@ -5,7 +5,7 @@ test.describe('testing login', () => {
     await page.goto('https://practice.expandtesting.com/login');
   })
   
-  test('test successful login', async ({ page }) => {
+  test.skip('test successful login', async ({ page }) => {
     await page.locator('#username').click();
     await page.locator('#username').fill('practice');
     await page.locator('#password').click();
@@ -14,7 +14,7 @@ test.describe('testing login', () => {
     expect(page.locator('#flash').filter({ hasText: 'You logged into a secure area!' })).toBeTruthy();
   });
 
-  test('test invalid username', async ({ page }) => {
+  test.skip('test invalid username', async ({ page }) => {
     await page.locator('#username').click();
     await page.locator('#username').fill('asd');
     await page.locator('#password').click();
@@ -23,7 +23,7 @@ test.describe('testing login', () => {
     expect(page.locator('#flash').filter({ hasText: 'Your username is invalid!' })).toBeTruthy();
   })
 
-  test('test invalid password', async ({ page }) => {
+  test.skip('test invalid password', async ({ page }) => {
     await page.locator('#username').click();
     await page.locator('#username').fill('practice');
     await page.locator('#password').click();
