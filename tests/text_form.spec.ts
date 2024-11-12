@@ -38,5 +38,4 @@ test.describe('testing text input', () => {
         expect((await page.locator('#result').innerText()).includes('Your input was:')).toBeTruthy();
         expect((await page.locator('#result-text').innerText()).includes(input)).toBeTruthy();
     })
-    
 })
