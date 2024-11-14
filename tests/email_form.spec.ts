@@ -26,7 +26,7 @@ test.describe('testing email input', () => {
         
     })
 
-    test('with no "@" in the email', async ({ page }) => {
+    test("testing with no '@' in the email", async ({ page }) => {
         await page.locator('#id_email').fill('asdgmail.com')
         await page.keyboard.press('Enter')
         expect(await page.locator('#error_1_id_email').innerText()).toContain("Enter a valid email address.")
